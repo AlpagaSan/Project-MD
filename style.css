@@ -1,0 +1,48 @@
+/* Sidebar */
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%); /* Caché par défaut */
+}
+
+#sidebar.active {
+  transform: translateX(0); /* Affiché */
+}
+
+#sidebar ul {
+  padding-left: 0;
+}
+
+#sidebar ul li {
+  margin: 10px 0;
+}
+
+#sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Main content */
+#content {
+  margin-left: 260px; /* espace pour le menu */
+}
+
+/* Form styles */
+form .form-label {
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #content {
+    margin-left: 0;
+  }
+  
+  #sidebar {
+    width: 200px;
+  }
+}
+  
