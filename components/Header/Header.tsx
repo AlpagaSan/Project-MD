@@ -1,6 +1,6 @@
 'use client' 
 
-import { useState } from 'react';
+import { usePathname } from 'next/navigation'
 import { Burger, Container, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
@@ -15,16 +15,15 @@ const links = [
 
 export default function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const pathname = usePathname()
 
   const items = links.map((link) => (
-     <Link key={link.label} href={link.link}
+     <Link
+        key={link.label}
+        href={link.link}
+        //className={`link ${pathname === '/' ? 'active' : ''}`}
         className={classes.link}
-        data-active={active === link.link || undefined}
-        onClick={(event) => {
-          event.preventDefault();
-          setActive(link.link);
-        }}
+        data-active={pathname === link.link || undefined}
       >
         {link.label}
     </Link>
